@@ -2,14 +2,13 @@ package com.app.pharma.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.catalina.Store;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "medicine")
 public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,4 +28,9 @@ public class Medicine {
     @Getter
     private String manufacturerName;
 
+    @Setter
+    @Getter
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "store_owner_id", nullable = false)
+    private StoreOwner storeOwner;
 }

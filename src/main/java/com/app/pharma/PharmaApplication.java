@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PharmaApplication {
 
     public static void main(String[] args) {
-
-        System.out.println("Hello world and docker!");
         SpringApplication.run(PharmaApplication.class, args);
     }
 
