@@ -21,6 +21,7 @@
                     <th>Price</th>
                     <th>Qty</th>
                     <th>Manufacturer Name</th>
+                    <th>StoreOwner Name</th>
                     <th>View</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -32,6 +33,7 @@
                     <td th:text="${medicine.price}">price</td>
                     <td th:text="${medicine.quantity}">quantity</td>
                     <td th:text="${medicine.manufacturerName}">manufacturerName</td>
+                    <td th:text="${medicine.storeOwner.name}">storeOwnerName</td>
                     <td><a th:href="${ '/medicine/' + medicine.id}">View</a></td>
                     <td><a th:href="${'/medicine/edit/' + medicine.id}">Edit</a></td>
                     <td><a th:href="${'/medicine/delete/' + medicine.id}">Delete</a></td>

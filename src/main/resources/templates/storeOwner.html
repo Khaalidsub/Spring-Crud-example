@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+
+    <title>Pharma Management System</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+
+<body>
+    <div class="container">
+        <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+        <div th:if="${not #lists.isEmpty(storeOwners)}">
+            <h2>Medicine List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <!--                <th>Product Id</th>-->
+                    <th>Name</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="storeOwner : ${storeOwners}">
+                    <td th:text="${storeOwner.id}"><a href="/storeOwner/${storeOwner.id}">Id</a></td>
+                    <!--                <td th:text="${product.productId}">Product Id</td>-->
+                    <td th:text="${storeOwner.name}">descirption</td>
+                    <td><a th:href="${ '/storeOwner/' + storeOwner.id}">View</a></td>
+                    <td><a th:href="${'/storeOwner/edit/' + storeOwner.id}">Edit</a></td>
+                    <td><a th:href="${'/storeOwner/delete/' + storeOwner.id}">Delete</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
