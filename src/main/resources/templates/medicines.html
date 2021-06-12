@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+
+    <title>Pharma Management System</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+
+<body>
+    <div class="container">
+        <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+        <div th:if="${not #lists.isEmpty(medicines)}">
+            <h2>Medicine List</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <!--<th>Product Id</th>-->
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Manufacturer Name</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="medicine : ${medicines}">
+                    <td th:text="${medicine.id}"><a href="/medicine/${medicine.id}">Id</a></td>
+                    <!--                <td th:text="${medicine.medicineId}">Product Id</td>-->
+                    <td th:text="${medicine.name}">descirption</td>
+                    <td th:text="${medicine.price}">price</td>
+                    <td th:text="${medicine.quantity}">quantity</td>
+                    <td th:text="${medicine.manufacturerName}">manufacturerName</td>
+                    <td><a th:href="${ '/medicine/' + medicine.id}">View</a></td>
+                    <td><a th:href="${'/medicine/edit/' + medicine.id}">Edit</a></td>
+                    <td><a th:href="${'/medicine/delete/' + medicine.id}">Delete</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
